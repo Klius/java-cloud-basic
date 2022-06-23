@@ -1,6 +1,6 @@
 FROM bitnami/git AS clonador
 
-RUN git clone https://github.com/IvanciniGT/formacionJavaCloud.git /tmp/proyecto
+RUN git clone https://github.com/Klius/java-cloud-basic.git /tmp/proyecto
 
 
  # Maven ya lleva git por lo que el clonador no seria necesario
@@ -22,3 +22,4 @@ FROM docker.io/bitnami/tomcat:10
 
 #Copiamos el war a la ruta para que haga el despiegue en auto
 COPY --from=empaquetador  /miproyecto/proyectos/1-basico/proyectoWEB/target/proyectoWEB.war /opt/bitnami/tomcat/webapps
+COPY ./tomcat.conf.xml /opt/bitnami/tomcat/conf/server.xml
