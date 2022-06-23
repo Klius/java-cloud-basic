@@ -4,7 +4,7 @@ services:
     mitomcat:
         container_name: mitomcat
         #image: docker.io/bitnami/tomcat:10
-        image: mitomcat:v2.0
+        image: mitomcat:v2.1
         ports:
           - '8080:8080'
 #        volumes:

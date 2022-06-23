@@ -16,10 +16,10 @@ COPY --from=clonador /tmp/proyecto /miproyecto
 
 # generamos el WAR
 
-RUN cd /miproyecto/proyectos/1-basico/proyectoWEB && mvn package 
+RUN cd /miproyecto/1-basico/proyectoWEB && mvn package 
 
 FROM docker.io/bitnami/tomcat:10
 
 #Copiamos el war a la ruta para que haga el despiegue en auto
-COPY --from=empaquetador  /miproyecto/proyectos/1-basico/proyectoWEB/target/proyectoWEB.war /opt/bitnami/tomcat/webapps
+COPY --from=empaquetador  /miproyecto/1-basico/proyectoWEB/target/proyectoWEB.war /opt/bitnami/tomcat/webapps
 COPY ./tomcat.conf.xml /opt/bitnami/tomcat/conf/server.xml
