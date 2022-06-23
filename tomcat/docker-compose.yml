@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    mitomcat:
+        container_name: mitomcat
+        #image: docker.io/bitnami/tomcat:10
+        image: mitomcat:v2.0
+        ports:
+          - '8080:8080'
+#        volumes:
+#          - '/home/ubuntu/environment/datos/tomcat/app:/app'
+        environment:
+          - ALLOW_EMPTY_PASSWORD=yes
+#          - TOMCAT_USERNAME=admin
+#          - TOMCAT_PASSWORD=Password
+#          - TOMCAT_ALLOW_REMOTE_MANAGEMENT=1
